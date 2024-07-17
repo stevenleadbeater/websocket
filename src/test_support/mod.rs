@@ -2,11 +2,11 @@ use std::fmt::Debug;
 use std::sync::{Arc, Mutex};
 use std::sync::atomic::{Ordering, AtomicI8};
 use actix::{Handler, Actor, StreamHandler};
-use websocket_server::websocket::Payload;
 use actix::prelude::*;
 use actix_web_actors::ws;
 use log::debug;
 use serde::{Serialize, Deserialize};
+use crate::websocket::Payload;
 
 #[derive(Clone)]
 pub struct WebSocket<T: 'static> where T: Serialize + Deserialize<'static> + Debug + Unpin {
